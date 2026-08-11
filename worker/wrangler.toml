@@ -1,0 +1,16 @@
+name = "aloud-workshop-relay"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# GITHUB_TOKEN is a secret, not a var — never put it here. Set it with
+#   npx wrangler secret put GITHUB_TOKEN
+# or in the dashboard under Settings -> Variables and Secrets.
+[vars]
+GITHUB_OWNER = "MichealFinnerty"
+GITHUB_REPO = "workshop-repo"
+
+# Optional. Bind a KV namespace called SUBMISSIONS to cap submissions per IP
+# per day; without it the worker still runs and the rate limit is skipped.
+# [[kv_namespaces]]
+# binding = "SUBMISSIONS"
+# id = "paste-the-id-wrangler-prints"

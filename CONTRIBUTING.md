@@ -1,9 +1,20 @@
 # Adding a pack
 
+**The short version: you don't need any of this page, or a GitHub account.**
+In the app, go to **Settings → Pronunciations → Workshop** and tap *Publish these
+words as a pack*. That sends it here as a pull request for review. Everything
+below is the manual route, for anyone who would rather do it by hand or wants to
+know exactly what the app is sending.
+
 ## 1. Make the pack in the app
 
 **Settings → Pronunciations → My words.** Add the words you want in the pack,
 listening to each one with the preview button until it sounds right.
+
+Words can be scoped to a folder — pick the folder at the top of that screen, and
+the words apply only to books filed in it. A pack is made from whichever scope is
+selected, so "Irish novels" is both a good way to keep your own library tidy and
+a ready-made pack.
 
 Respellings are ordinary text, not phonetic notation. Hyphens are the trick that
 makes them work — each part is looked up separately, so `Shiv-awn` is read as two

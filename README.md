@@ -12,16 +12,23 @@ Install one from the app: **Settings → Pronunciations → Workshop**.
 ```
 index.json          the catalogue the app reads
 packs/*.json        one file per pack
+worker/             the relay that turns an in-app submission into a pull request
+validate.py         the format check, run on every pull request
 ```
 
-That's the whole thing. There is no server: the app fetches these two paths over
-HTTPS and everything else happens on the phone.
+Reading is server-free: the app fetches `index.json` and a pack file over HTTPS
+and everything else happens on the phone. The only moving part is `worker/`,
+which exists so that contributing doesn't require a GitHub account.
 
 ## Adding a pack
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: make the pack in the app,
-save it to a file, open a pull request adding that file to `packs/` and a row to
-`index.json`. A check runs on the pull request and tells you if anything is off.
+In the app: **Settings → Pronunciations → Workshop → Publish these words as a
+pack**. That opens a pull request here. You don't need a GitHub account.
+
+By hand, or to see what the app sends: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Either way a check runs on the pull request and says if anything is off, and a
+person reads the words before it merges.
 
 ## Rules for what gets merged
 
