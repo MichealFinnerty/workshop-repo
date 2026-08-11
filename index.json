@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "irish-names",
+      "name": "Irish names",
+      "author": "Aloud",
+      "description": "Given names and surnames, as they are actually said",
+      "wordCount": 24,
+      "version": 1,
+      "path": "packs/irish-names.json"
+    }
+  ]
+}

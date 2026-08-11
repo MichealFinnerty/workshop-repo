@@ -1,0 +1,19 @@
+name: Validate packs
+
+# Every pull request, so a contributor finds out what is wrong from the check
+# rather than from a review comment a day later.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check index.json and every pack
+        run: python validate.py
