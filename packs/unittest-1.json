@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "unittest-1",
+  "name": "UnitTest_1",
+  "author": "Developer",
+  "description": "Testing",
+  "version": 1,
+  "rules": [
+    {
+      "word": "don't",
+      "say": "doh-nt"
+    }
+  ]
+}

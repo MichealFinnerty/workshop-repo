@@ -10,6 +10,15 @@
       "wordCount": 24,
       "version": 1,
       "path": "packs/irish-names.json"
+    },
+    {
+      "id": "unittest-1",
+      "name": "UnitTest_1",
+      "author": "Developer",
+      "description": "Testing",
+      "wordCount": 1,
+      "version": 1,
+      "path": "packs/unittest-1.json"
     }
   ]
 }
