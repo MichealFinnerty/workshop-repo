@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "submitUrl": "https://aloud-workshop-relay.micheal-finnerty2.workers.dev/submit",
   "packs": [
     {
       "id": "irish-names",

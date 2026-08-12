@@ -18,6 +18,7 @@ SCHEMA_VERSION = 1
 
 ID_PATTERN = re.compile(r"[a-z0-9][a-z0-9-]{0,63}$")
 LINKISH = re.compile(r"https?://|www\.", re.IGNORECASE)
+SUBMIT_URL_PATTERN = re.compile(r"https://[a-z0-9.-]+\.workers\.dev/[^?#\s]+$")
 
 MAX_RULES = 500
 MAX_NAME = 60
@@ -119,6 +120,18 @@ def main() -> int:
         return 1
     if index.get("schemaVersion") != SCHEMA_VERSION:
         fail("index.json", f"schemaVersion must be {SCHEMA_VERSION}")
+
+    # Optional, and the one field in here the app will POST a reader's own words
+    # to, so it is held to exactly the shape the app will accept — a typo here
+    # would otherwise show up as a publish button that silently does nothing.
+    submit_url = index.get("submitUrl")
+    if submit_url is not None:
+        if not isinstance(submit_url, str) or not SUBMIT_URL_PATTERN.match(submit_url):
+            fail(
+                "index.json",
+                "submitUrl must be https://<something>.workers.dev/<path> "
+                "with no query string",
+            )
 
     packs = index.get("packs")
     if not isinstance(packs, list):

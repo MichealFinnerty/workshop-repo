@@ -50,14 +50,37 @@ npx wrangler secret put GITHUB_TOKEN
 Both routes print a URL like
 `https://aloud-workshop-relay.<your-subdomain>.workers.dev`.
 
-Put it in `WorkshopSource.SubmitUrl` in the app, **with `/submit` on the end**:
+**The easy way — no app release.** Add it to `index.json` in this repository, at
+the top level beside `packs`, **with `/submit` on the end**:
+
+```json
+{
+  "schemaVersion": 1,
+  "submitUrl": "https://aloud-workshop-relay.your-subdomain.workers.dev/submit",
+  "packs": [ ... ]
+}
+```
+
+Every copy of the app picks it up the next time the workshop tab loads, and the
+publish button turns on. The app only accepts an `https` URL on a `.workers.dev`
+host with no query or credentials in it, so a tampered index can misdirect a
+submission to another worker but not to anywhere else — and only ever after
+somebody has read the pack on screen and pressed Publish.
+
+**The other way — compiled in.** Set `WorkshopSource.SubmitUrl` in the app:
 
 ```kotlin
 const val SubmitUrl = "https://aloud-workshop-relay.your-subdomain.workers.dev/submit"
 ```
 
-Until that constant is set, the app hides the publish button and points people at
-CONTRIBUTING.md instead.
+That wins over the index when both are set, and is not held to the `.workers.dev`
+rule, because a value compiled into the app is one its author chose rather than
+one it was told about.
+
+Until one of the two is set, the app disables the publish button and says the
+workshop isn't taking submissions yet. It never sends anybody to a browser —
+publishing exists so that a reader never has to leave the app or own a GitHub
+account.
 
 ## Checking it works
 
