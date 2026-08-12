@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "relay-test",
+  "name": "Relay test",
+  "author": "Micheal",
+  "description": "Checking the relay",
+  "version": 1,
+  "rules": [
+    {
+      "word": "Siobhan",
+      "say": "Shiv-awn"
+    }
+  ]
+}
