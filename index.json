@@ -10,6 +10,15 @@
       "wordCount": 24,
       "version": 1,
       "path": "packs/irish-names.json"
+    },
+    {
+      "id": "relay-test",
+      "name": "Relay test",
+      "author": "Micheal",
+      "description": "Checking the relay",
+      "wordCount": 1,
+      "version": 1,
+      "path": "packs/relay-test.json"
     }
   ]
 }
